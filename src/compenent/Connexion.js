@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import {Redirect} from 'react-router-dom'
 
 export default class Connexion extends Component {
 
     state = {
-        pseudo: ''
+        pseudo: '',
+        go:false
     }
 
     handleChange=(e)=>{
@@ -12,10 +14,19 @@ export default class Connexion extends Component {
             pseudo:pseudo
         })
     }
+    redirect = event => {
+        event.preventDefault()
+         this.setState({
+            goToChat:true
+        })
+    }
     render() {
+        if(this.state.goToChat){
+            return <Redirect to={`pseudo/${this.state.pseudo}`}/>
+        }
         return (
             <div className="connexionBox">
-                <form className="connexion">
+                <form className="connexion" onSubmit={this.redirect}>
                     <input
                     value={this.state.pseudo}
                     onChange={this.handleChange}
