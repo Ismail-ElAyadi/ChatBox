@@ -5,12 +5,15 @@ import App from './App'
 import Connexion from './compenent/Connexion'
 import * as serviceWorker from './serviceWorker'
 import {BrowserRouter, Route,Switch} from 'react-router-dom'
+import NotFound from './compenent/NotFound'
 const Root = () => (
     <BrowserRouter>
     <Switch>
+
         <Route exact path="/" component={Connexion} />
 
-        <Route path ="/pseudo/:pseudo" compenent={App}/>
+        <Route path ="/pseudo/:pseudo" component={App}/>
+        <Route component={NotFound}/>
     </Switch>
     </BrowserRouter>
 )
