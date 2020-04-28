@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 export default class Form extends Component {
     state = {
-        message:''
+        message:'',
+        length:this.props.length
 
     }
     createMessage = ()=> {
@@ -12,27 +13,34 @@ export default class Form extends Component {
             message:this.state.message
         }
         addMessage(message)
+        this.setState({
+            message:''
+        })
     }
 
     handleSubmit=(e)=> {
         e.preventDefault();
         this.createMessage()
-
     }
     handleChange=(e)=> {
+        const message = e.target.value
+        const length = this.props.length - message.length
         this.setState({
-            message : e.target.value
+            message,
+            length
         })
     }
     render() {
         return (
             <form className='form' onSubmit={this.handleSubmit}>
                 <textarea
+                value ={this.state.message}
                 onChange={this.handleChange}
+                placeholder="Write your message"
                 required
                 maxLength='140'/>
                 <div className='info'>
-                    140
+                    {this.state.length}
                 </div>
                 <button type='submit'>
                     Send

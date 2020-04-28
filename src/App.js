@@ -23,6 +23,7 @@ class App extends Component {
           </div>
         </div>
         <Form
+        length={140}
         addMessage={this.addMessage}
         pseudo={this.state.pseudo}
         />
