@@ -30,15 +30,21 @@ export default class Form extends Component {
             length
         })
     }
+    handleKeyUp=(e)=> {
+        if(e.key === 'Enter'){
+            this.createMessage()
+        }
+    }
     render() {
         return (
             <form className='form' onSubmit={this.handleSubmit}>
                 <textarea
                 value ={this.state.message}
                 onChange={this.handleChange}
+                onKeyUp={this.handleKeyUp}
                 placeholder="Write your message"
                 required
-                maxLength='140'/>
+                maxLength={this.props.length}/>
                 <div className='info'>
                     {this.state.length}
                 </div>
