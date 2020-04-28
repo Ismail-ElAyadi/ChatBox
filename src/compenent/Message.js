@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { Component } from "react";
 
- const Message= ()=> {
-    return(
-        <p className='user-message'>
-            Message here.
+export default class Message extends Component {
+  render() {
+    let { pseudo, message } = this.props;
+    return (
+      <div>
+        <p className="user-message">
+          {pseudo}: {message}
         </p>
-    )
+      </div>
+    );
+  }
 }
-
-export default Message
