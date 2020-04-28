@@ -22,7 +22,7 @@ export default class Connexion extends Component {
     }
     render() {
         if(this.state.goToChat){
-            return <Redirect to={`pseudo/${this.state.pseudo}`}/>
+            return <Redirect push to={`pseudo/${this.state.pseudo}`}/>
         }
         return (
             <div className="connexionBox">
@@ -34,7 +34,7 @@ export default class Connexion extends Component {
                     type="text"
                     required
                     />
-                    <button type="submit">Se connecter</button>
+                    <button type="submit">Connexion</button>
                 </form>
             </div>
         )
