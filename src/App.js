@@ -21,7 +21,6 @@ class App extends Component {
       key={e}
       pseudo={messages[e].pseudo}
       message={messages[e].message}
-
       />
 
     ))
